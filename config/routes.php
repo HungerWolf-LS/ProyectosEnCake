@@ -57,10 +57,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
 
-    Router::scope('/bookmarks',['controller'=>'Bookmarks'],
-        function($routes) {
-            $routes->connect('/tagged/*', ['action'=> 'tags']);
-    });
+
+
     /**
      * Connect catchall routes for all controllers.
      *
@@ -78,6 +76,18 @@ Router::scope('/', function (RouteBuilder $routes) {
      * routes you want in your application.
      */
     $routes->fallbacks(DashedRoute::class);
+});
+
+Router::scope('/bookmarks',['controller'=>'Bookmarks'],
+    function($routes) {
+        $routes->connect('/tagged/*', ['action'=> 'tags']);
+});
+
+Router::scope('/', function($routes)
+{
+    $routes->connect('/',['controller'=> 'Pages','action'=>'display','home']);
+    $routes->connect('/pages/*',['controller'=>'Pages','action'=>'display']);
+    $routes->fallbacks();
 });
 
 /**
