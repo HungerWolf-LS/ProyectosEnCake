@@ -50,12 +50,17 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-
+    /*r*/
     /**
      * ...and connect the rest of 'Pages' controller's URLs.
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
+
+    Router::scope('/bookmarks',['controller'=>'Bookmarks'],
+        function($routes) {
+            $routes->connect('/tagged/*', ['action'=> 'tags']);
+    });
     /**
      * Connect catchall routes for all controllers.
      *
