@@ -34,3 +34,4 @@ FOREIGN KEY tag_key(tag_id) REFERENCES tags(id),
 FOREIGN KEY bookmark_key(bookmark_id) REFERENCES bookmarks(id));
 
 #Resulta que cree la tabla como user, no como users hare la modificacion por la interfaz grafica
+#Procedere a hacer inserciones c:
